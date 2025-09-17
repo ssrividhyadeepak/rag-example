@@ -1,0 +1,27 @@
+# ATM RAG Application Dependencies
+
+# Core dependencies
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.5.0
+
+# Database
+pymongo>=4.6.0
+
+# ML and Embeddings
+sentence-transformers>=2.2.0
+torch>=2.1.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Utilities
+python-dateutil>=2.8.0
+requests>=2.31.0
+
+# Development and testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+
+# Optional: For Jupyter notebooks if needed
+jupyter>=1.0.0
+matplotlib>=3.7.0

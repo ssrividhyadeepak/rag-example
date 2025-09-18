@@ -1,0 +1,162 @@
+[
+  {
+    "timestamp": "2024-01-15T10:30:00Z",
+    "session_id": "SES_20240115_103000_ATM001",
+    "customer_session_id": "CUST_789ABC123",
+    "event_type": "withdrawal_denied",
+    "operation": "withdrawal",
+    "status": "denied",
+    "message": "Withdrawal denied DDL exceeded",
+    "error_code": "DDL_EXCEEDED",
+    "atm_id": "ATM001",
+    "amount": 500,
+    "metadata": {
+      "card_number": "****1234",
+      "location": "Branch_Downtown"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T10:35:00Z",
+    "session_id": "SES_20240115_103500_ATM001",
+    "customer_session_id": "CUST_456DEF789",
+    "event_type": "withdrawal_success",
+    "operation": "withdrawal",
+    "status": "success",
+    "message": "Cash dispensed successfully",
+    "error_code": "",
+    "atm_id": "ATM001",
+    "amount": 200,
+    "metadata": {
+      "card_number": "****5678",
+      "location": "Branch_Downtown"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T10:40:00Z",
+    "session_id": "SES_20240115_104000_ATM002",
+    "customer_session_id": "CUST_123GHI456",
+    "event_type": "balance_inquiry",
+    "operation": "balance_inquiry",
+    "status": "success",
+    "message": "Balance inquiry completed",
+    "error_code": "",
+    "atm_id": "ATM002",
+    "amount": null,
+    "metadata": {
+      "card_number": "****9012",
+      "location": "Branch_Uptown"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T10:45:00Z",
+    "session_id": "SES_20240115_104500_ATM001",
+    "customer_session_id": "CUST_789JKL012",
+    "event_type": "deposit_failed",
+    "operation": "deposit",
+    "status": "failed",
+    "message": "Deposit failed - envelope jam detected",
+    "error_code": "ENVELOPE_JAM",
+    "atm_id": "ATM001",
+    "amount": 1000,
+    "metadata": {
+      "card_number": "****3456",
+      "location": "Branch_Downtown"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T10:50:00Z",
+    "session_id": "SES_20240115_105000_ATM003",
+    "customer_session_id": "CUST_456MNO789",
+    "event_type": "pin_retry_limit",
+    "operation": "card_operation",
+    "status": "denied",
+    "message": "Card retained due to exceeded PIN retry limit",
+    "error_code": "PIN_RETRY_EXCEEDED",
+    "atm_id": "ATM003",
+    "amount": null,
+    "metadata": {
+      "card_number": "****7890",
+      "location": "Branch_Westside"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T11:00:00Z",
+    "session_id": "SES_20240115_110000_ATM002",
+    "customer_session_id": "CUST_123PQR456",
+    "event_type": "transfer_success",
+    "operation": "transfer",
+    "status": "success",
+    "message": "Funds transferred successfully between accounts",
+    "error_code": "",
+    "atm_id": "ATM002",
+    "amount": 750,
+    "metadata": {
+      "card_number": "****2468",
+      "location": "Branch_Uptown"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T11:05:00Z",
+    "session_id": "SES_20240115_110500_ATM001",
+    "customer_session_id": "CUST_789STU012",
+    "event_type": "system_timeout",
+    "operation": "withdrawal",
+    "status": "timeout",
+    "message": "Transaction timed out - no response from user",
+    "error_code": "USER_TIMEOUT",
+    "atm_id": "ATM001",
+    "amount": 300,
+    "metadata": {
+      "card_number": "****1357",
+      "location": "Branch_Downtown"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T11:10:00Z",
+    "session_id": "SES_20240115_111000_ATM004",
+    "customer_session_id": "CUST_456VWX789",
+    "event_type": "insufficient_funds",
+    "operation": "withdrawal",
+    "status": "denied",
+    "message": "Withdrawal denied - insufficient funds in account",
+    "error_code": "INSUFFICIENT_FUNDS",
+    "atm_id": "ATM004",
+    "amount": 800,
+    "metadata": {
+      "card_number": "****9753",
+      "location": "Branch_Eastside"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T11:15:00Z",
+    "session_id": "SES_20240115_111500_ATM002",
+    "customer_session_id": "CUST_123YZA456",
+    "event_type": "deposit_success",
+    "operation": "deposit",
+    "status": "success",
+    "message": "Cash deposit processed successfully",
+    "error_code": "",
+    "atm_id": "ATM002",
+    "amount": 1200,
+    "metadata": {
+      "card_number": "****8642",
+      "location": "Branch_Uptown"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T11:20:00Z",
+    "session_id": "SES_20240115_112000_ATM003",
+    "customer_session_id": "CUST_789BCD012",
+    "event_type": "card_read_error",
+    "operation": "card_operation",
+    "status": "error",
+    "message": "Unable to read card - please clean card and try again",
+    "error_code": "CARD_READ_ERROR",
+    "atm_id": "ATM003",
+    "amount": null,
+    "metadata": {
+      "card_number": "****0000",
+      "location": "Branch_Westside"
+    }
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "timestamp": "2024-01-15T14:30:00Z",
+    "session_id": "SES_20240115_143000_ATM001",
+    "customer_session_id": "CUST_ERROR_001",
+    "event_type": "withdrawal_denied",
+    "operation": "withdrawal",
+    "status": "denied",
+    "message": "Withdrawal denied DDL exceeded - daily limit reached",
+    "error_code": "DDL_EXCEEDED",
+    "atm_id": "ATM001",
+    "amount": 600,
+    "metadata": {
+      "card_number": "****1111",
+      "location": "Branch_Downtown"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T14:45:00Z",
+    "session_id": "SES_20240115_144500_ATM005",
+    "customer_session_id": "CUST_ERROR_002",
+    "event_type": "system_maintenance",
+    "operation": "system_operation",
+    "status": "error",
+    "message": "ATM temporarily out of service for maintenance",
+    "error_code": "MAINTENANCE_MODE",
+    "atm_id": "ATM005",
+    "amount": null,
+    "metadata": {
+      "card_number": "",
+      "location": "Branch_Central"
+    }
+  },
+  {
+    "timestamp": "2024-01-15T15:00:00Z",
+    "session_id": "SES_20240115_150000_ATM002",
+    "customer_session_id": "CUST_ERROR_003",
+    "event_type": "cash_dispenser_error",
+    "operation": "withdrawal",
+    "status": "failed",
+    "message": "Cash dispenser malfunction - please try another ATM",
+    "error_code": "DISPENSER_ERROR",
+    "atm_id": "ATM002",
+    "amount": 400,
+    "metadata": {
+      "card_number": "****2222",
+      "location": "Branch_Uptown"
+    }
+  }
+]

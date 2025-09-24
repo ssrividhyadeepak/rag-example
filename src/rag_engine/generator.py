@@ -73,7 +73,7 @@ class ResponseGenerator:
                 "confidence": self._calculate_confidence(context),
                 "sources_count": len(context.get("relevant_logs", [])),
                 "metadata": metadata,
-                "generated_at": datetime.utcnow()
+                "generated_at": datetime.utcnow().isoformat().isoformat()
             }
 
         except Exception as e:
@@ -112,12 +112,14 @@ class ResponseGenerator:
         )
 
     def generate_error_code_response(self,
+                                   query: str,
                                    error_code: str,
                                    context: Dict[str, Any]) -> str:
         """
         Generate error code explanation response.
 
         Args:
+            query: User's question
             error_code: Specific error code
             context: Retrieved context with relevant logs
 
@@ -128,7 +130,7 @@ class ResponseGenerator:
         examples = [log for log in relevant_logs if log.get("error_code") == error_code]
 
         return self.prompt_templates.generate_error_code_response(
-            error_code, examples[:self.max_examples_per_response]
+            query, error_code, examples[:self.max_examples_per_response]
         )
 
     def generate_analysis_response(self,
@@ -172,7 +174,7 @@ class ResponseGenerator:
         context_summary = context.get("context_summary", "")
         relevant_logs = context.get("relevant_logs", [])
 
-        return self.prompt_templates.generate_informational_response(
+        return self.prompt_templates.generate_info_response(
             query, context_summary, relevant_logs[:3]
         )
 
@@ -231,7 +233,7 @@ class ResponseGenerator:
             # Try to extract error code from query
             error_code = self._extract_error_code(query)
             if error_code:
-                return self.generate_error_code_response(error_code, context)
+                return self.generate_error_code_response(query, error_code, context)
             else:
                 return self.generate_troubleshooting_response(query, context)
 
@@ -508,5 +510,5 @@ class ResponseGenerator:
             "confidence": 0.0,
             "sources_count": 0,
             "metadata": {"error": error},
-            "generated_at": datetime.utcnow()
+            "generated_at": datetime.utcnow().isoformat()
         }

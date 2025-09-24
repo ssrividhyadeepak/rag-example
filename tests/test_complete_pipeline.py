@@ -46,7 +46,7 @@ class TestCompleteATMRagPipeline:
 
         # Use fast embedding for testing
         self.embedding_generator = EmbeddingGenerator(
-            model_name="fast",
+            model_type="fast",
             cache_dir=str(Path(self.temp_dir) / "embeddings")
         )
 

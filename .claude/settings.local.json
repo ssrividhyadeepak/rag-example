@@ -2,7 +2,24 @@
   "permissions": {
     "allow": [
       "Bash(git config:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3:*)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm init:*)",
+      "Bash(rm:*)",
+      "Bash(npm install:*)",
+      "Bash(chmod:*)",
+      "Bash(./start_dev.sh:*)",
+      "Bash(find:*)",
+      "Bash(brew services start:*)",
+      "Bash(brew tap:*)",
+      "Bash(brew install:*)",
+      "Bash(brew list:*)",
+      "Bash(mongod:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

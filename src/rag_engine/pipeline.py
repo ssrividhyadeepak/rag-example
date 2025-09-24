@@ -205,7 +205,19 @@ class ATMRagPipeline:
             Response dictionary
         """
         try:
-            return asyncio.run(self.process_query(query, filters, top_k, response_type))
+            # Check if we're already in an event loop
+            try:
+                loop = asyncio.get_running_loop()
+                # We're in an async context, create a task
+                import concurrent.futures
+                with concurrent.futures.ThreadPoolExecutor() as executor:
+                    future = executor.submit(
+                        lambda: asyncio.run(self.process_query(query, filters, top_k, response_type))
+                    )
+                    return future.result(timeout=30)
+            except RuntimeError:
+                # No running loop, safe to use asyncio.run()
+                return asyncio.run(self.process_query(query, filters, top_k, response_type))
         except Exception as e:
             logger.error(f"Sync pipeline error: {e}")
             return self._generate_error_response(query, str(e))
@@ -474,7 +486,7 @@ class ATMRagPipeline:
             "confidence": 0.0,
             "sources_count": 0,
             "metadata": {"timeout_seconds": timeout},
-            "generated_at": datetime.utcnow(),
+            "generated_at": datetime.utcnow().isoformat(),
             "pipeline_metadata": {"cached": False, "timeout": True}
         }
 
@@ -487,7 +499,7 @@ class ATMRagPipeline:
             "confidence": 0.0,
             "sources_count": 0,
             "metadata": {"error": error},
-            "generated_at": datetime.utcnow(),
+            "generated_at": datetime.utcnow().isoformat(),
             "pipeline_metadata": {"cached": False, "error": True}
         }
 

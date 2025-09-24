@@ -77,7 +77,7 @@ class TestPromptTemplates:
             }
         ]
 
-        response = self.templates.generate_error_code_response(error_code, examples)
+        response = self.templates.generate_error_code_response("What does DDL_EXCEEDED mean?", error_code, examples)
 
         assert isinstance(response, str)
         assert len(response) > 0
@@ -136,7 +136,7 @@ class TestPromptTemplates:
         assert "no" in response.lower() or "not found" in response.lower()
 
         # Test with empty error examples
-        response = self.templates.generate_error_code_response("UNKNOWN_ERROR", [])
+        response = self.templates.generate_error_code_response("What does UNKNOWN_ERROR mean?", "UNKNOWN_ERROR", [])
 
         assert isinstance(response, str)
         assert len(response) > 0
@@ -213,7 +213,7 @@ class TestResponseGenerator:
             ]
         }
 
-        response = self.generator.generate_error_code_response(error_code, context)
+        response = self.generator.generate_error_code_response("What causes NETWORK_ERROR?", error_code, context)
 
         assert isinstance(response, str)
         assert len(response) > 0

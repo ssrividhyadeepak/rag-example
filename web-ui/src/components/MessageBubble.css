@@ -1,0 +1,249 @@
+.message-container {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.message-container.user {
+  justify-content: flex-end;
+}
+
+.message-container.assistant {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 80%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.message-container.user .message-bubble {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 18px 18px 6px 18px;
+}
+
+.message-container.assistant .message-bubble {
+  border-radius: 18px 18px 18px 6px;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.message-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-container.user .message-avatar {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.message-container.assistant .message-avatar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.message-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.message-sender {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.message-container.user .message-sender {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.message-container.assistant .message-sender {
+  color: #4a5568;
+}
+
+.message-time {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.message-content {
+  margin-bottom: 0.5rem;
+}
+
+.content-text {
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.content-text.error {
+  color: #e53e3e;
+  font-weight: 500;
+}
+
+.message-container.user .content-text {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.message-container.assistant .content-text {
+  color: #2d3748;
+}
+
+/* Welcome message styling */
+.welcome-content {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #2d3748;
+}
+
+.welcome-content strong {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.welcome-content ul {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+}
+
+.welcome-content li {
+  margin-bottom: 0.5rem;
+  list-style: none;
+  position: relative;
+}
+
+.welcome-content li::before {
+  content: "•";
+  color: #667eea;
+  font-weight: bold;
+  position: absolute;
+  left: -1rem;
+}
+
+/* Message footer with metadata */
+.message-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.confidence-indicator,
+.response-time,
+.sources-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #4a5568;
+}
+
+.intent-indicator {
+  margin-left: auto;
+}
+
+.intent-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.intent-badge.troubleshooting {
+  background: rgba(245, 101, 101, 0.1);
+  color: #c53030;
+}
+
+.intent-badge.error_explanation {
+  background: rgba(246, 173, 85, 0.1);
+  color: #d69e2e;
+}
+
+.intent-badge.operation_inquiry {
+  background: rgba(104, 211, 145, 0.1);
+  color: #38a169;
+}
+
+.intent-badge.historical_search {
+  background: rgba(99, 179, 237, 0.1);
+  color: #3182ce;
+}
+
+.intent-badge.performance_analysis {
+  background: rgba(159, 122, 234, 0.1);
+  color: #805ad5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .message-bubble {
+    max-width: 90%;
+    padding: 0.875rem;
+  }
+
+  .message-header {
+    font-size: 0.8rem;
+  }
+
+  .content-text {
+    font-size: 0.9rem;
+  }
+
+  .message-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .intent-indicator {
+    margin-left: 0;
+  }
+}
+
+/* Animation for new messages */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-container {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Hover effects */
+.message-bubble:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.message-container.user .message-bubble:hover {
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.3);
+}
